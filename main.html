@@ -122,211 +122,230 @@
                 }
             }
         });
-    </script>
+
+        document.addEventListener("DOMContentLoaded", function() {
+            let lazyImages = document.querySelectorAll("img.lazy-load");
+
+            let observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        let img = entry.target;
+                        img.src = img.dataset.src;
+                        img.onload = () => img.style.opacity = "1"; 
+                        observer.unobserve(img);
+                    }
+                });
+            });
+
+            lazyImages.forEach(img => {
+                observer.observe(img);
+            });
+        });
+            </script>
 
     
 </head>
 <body>
     <div class="container">
         <div class="column">
-            <div class="image-box"><img src="img/a/1.jpg" alt="Hình 1"></div>
+            <div class="image-box" ><img src="img/a/1.jpg" alt="Hình 1" loading="lazy"></div>
             <div class="image-text">Những ngày đầu chúng mình yêu thương nhau nè embe, những món quà mỗi tháng, chỏ nhau rong ruổi trên khắp các cung đường</div>
-            <div class="image-box"><img src="img/a/3.jpg" alt="Hình 3"></div>
-            <div class="image-box"><img src="img/a/2.jpg" alt="Hình 1"></div> 
+            <div class="image-box"><img src="img/a/3.jpg" alt="Hình 3" loading="lazy"></div>
+            <div class="image-box"><img src="img/a/2.jpg" alt="Hình 1" loading="lazy"></div> 
             <div class="image-text">Tháng 2: Ngày đâu iuuu thương em bé đã bị ngã em nè, nhưng sau đó phải gồng để cùng mẹ vào Đà Nẵng chơi á</div>
-            <div class="image-box"><img src="img/a/10.jpg" alt="Hình 3"></div>
+            <div class="image-box"><img src="img/a/10.jpg" alt="Hình 3" loading="lazy"></div>
             <div class="image-box"><img src="img/a/14.jpg" alt="Hình 3"></div>
-            <div class="image-box"><img src="img/a/16.jpg" alt="Hình 1"></div>           
-            <div class="image-box"><img src="img/a/1/t3 (2).jpg" alt="Hình 1"></div>
-            <div class="image-box"><img src="img/a/22.jpg" alt="Hình 3"></div>
-            <div class="image-box"><img src="img/a/24.jpg" alt="Hình 1"></div>         
-            <div class="image-box"><img src="img/a/26.jpg" alt="Hình 3"></div>
+            <div class="image-box"><img src="img/a/16.jpg" alt="Hình 1" loading="lazy"></div>           
+            <div class="image-box"><img src="img/a/1/t3 (2).jpg" alt="Hình 1" loading="lazy"></div>
+            <div class="image-box"><img src="img/a/22.jpg" alt="Hình 3" loading="lazy"></div>
+            <div class="image-box"><img src="img/a/24.jpg" alt="Hình 1"loading="lazy"></div>         
+            <div class="image-box"><img src="img/a/26.jpg" alt="Hình 3" loading="lazy"></div>
             <div class="image-text">Uống sữa nhanh ko anh uống hết nè</div>
-            <div class="image-box"><img src="img/a/28.jpg" alt="Hình 1"></div>
-            <div class="image-box"><img src="img/a/30.jpg" alt="Hình 3"></div>
-            <div class="image-box"><img src="img/a/32.jpg" alt="Hình 1"></div>
-            <div class="image-box"><img src="img/a/34.jpg" alt="Hình 3"></div>
+            <div class="image-box"><img src="img/a/28.jpg" alt="Hình 1" loading="lazy"></div>
+            <div class="image-box"><img src="img/a/30.jpg" alt="Hình 3" loading="lazy"></div>
+            <div class="image-box"><img src="img/a/32.jpg" alt="Hình 1" loading="lazy"></div>
+            <div class="image-box"><img src="img/a/34.jpg" alt="Hình 3" loading="lazy"></div>
             <div class="image-text">Đi lễ thui mà xinh quá 💕</div>
-            <div class="image-box"><img src="img/a/36.jpg" alt="Hình 1"></div>
-            <div class="image-box"><img src="img/a/38.jpg" alt="Hình 3"></div>
-            <div class="image-box"><img src="img/a/39.jpg" alt="Hình 1"></div>
-            <div class="image-box"><img src="img/a/12.jpg" alt="Hình 1"></div>
+            <div class="image-box"><img src="img/a/36.jpg" alt="Hình 1" loading="lazy"></div>
+            <div class="image-box"><img src="img/a/38.jpg" alt="Hình 3" loading="lazy"></div>
+            <div class="image-box"><img src="img/a/39.jpg" alt="Hình 1" loading="lazy"></div>
+            <div class="image-box"><img src="img/a/12.jpg" alt="Hình 1" loading="lazy"></div>
             <div class="image-text">Đưa siêu nhân đi viện khám mà lòng anh lo sợ</div>
-            <div class="image-box"><img src="img/a/18.jpg" alt="Hình 3"></div>
-            <div class="image-box"><img src="img/a/20.jpg" alt="Hình 1"></div>
+            <div class="image-box"><img src="img/a/18.jpg" alt="Hình 3" loading="lazy"></div>
+            <div class="image-box"><img src="img/a/20.jpg" alt="Hình 1" loading="lazy"></div>
             <div class="image-text">Mới được cái áo anh tặng mà toàn ảnh dịu keo. Mưa tháng 5, em chẳng sợ vì đã có tiểu Đình nè</div>
-            <div class="image-box"><img src="img/a/40.jpg" alt="Hình 3"></div>
-            <div class="image-box"><img src="img/a/42.jpg" alt="Hình 1"></div>
-            <div class="image-box"><img src="img/a/44.jpg" alt="Hình 3"></div>
+            <div class="image-box"><img src="img/a/40.jpg" alt="Hình 3" loading="lazy"></div>
+            <div class="image-box"><img src="img/a/42.jpg" alt="Hình 1" loading="lazy"></div>
+            <div class="image-box"><img src="img/a/44.jpg" alt="Hình 3" loading="lazy"></div>
             <div class="image-text">Đi chơi mà để anh bé ở nhà một mình nè</div>
-            <div class="image-box"><img src="img/a/46.jpg" alt="Hình 1"></div>
-            <div class="image-box"><img src="img/a/48.jpg" alt="Hình 3"></div>
-            <div class="image-box"><img src="img/a/52.jpg" alt="Hình 3"></div>
+            <div class="image-box"><img src="img/a/46.jpg" alt="Hình 1" loading="lazy"></div>
+            <div class="image-box"><img src="img/a/48.jpg" alt="Hình 3" loading="lazy"></div>
+            <div class="image-box"><img src="img/a/52.jpg" alt="Hình 3" loading="lazy" ></div>
             <div class="image-text">Chuyến du lịch Đà Nẵng 3 ngày 2 đêm, xin được phép bắt đầu</div>
-            <div class="image-box"><img src="img/a/54.jpg" alt="Hình 1"></div>
-            <div class="image-box"><img src="img/a/56.jpg" alt="Hình 3"></div>
-            <div class="image-box"><img src="img/a/58.jpg" alt="Hình 1"></div>
+            <div class="image-box"><img src="img/a/54.jpg" alt="Hình 1" loading="lazy"></div>
+            <div class="image-box"><img src="img/a/56.jpg" alt="Hình 3" loading="lazy"></div>
+            <div class="image-box"><img src="img/a/58.jpg" alt="Hình 1" loading="lazy"></div>
             <div class="image-text">Đến nơi checkin và cho người yêu vào việc liền</div>
-            <div class="image-box"><img src="img/a/60.jpg" alt="Hình 3"></div>
-            <div class="image-box"><img src="img/a/62.jpg" alt="Hình 1"></div>
-            <div class="image-box"><img src="img/a/1/dn.jpg" alt="Hình 1"></div>
-            <div class="image-box"><img src="img/a/1/dn1.jpg" alt="Hình 1"></div> 
+            <div class="image-box"><img src="img/a/60.jpg" alt="Hình 3" loading="lazy"></div>
+            <div class="image-box"><img src="img/a/62.jpg" alt="Hình 1" loading="lazy"></div>
+            <div class="image-box"><img src="img/a/1/dn.jpg" alt="Hình 1" loading="lazy"></div>
+            <div class="image-box"><img src="img/a/1/dn1.jpg" alt="Hình 1" loading="lazy"></div> 
             <div class="image-text">Camera chạy bằng tinh iuuu chính hiệu ❤️(có bổ sung thêm cơm)</div> 
-            <div class="image-box"><img src="img/a/63.jpg" alt="Hình 1"></div>         
-            <div class="image-box"><img src="img/a/64.jpg" alt="Hình 3"></div>
-            <div class="image-box"><img src="img/a/66.jpg" alt="Hình 1"></div>
+            <div class="image-box"><img src="img/a/63.jpg" alt="Hình 1" loading="lazy"></div>         
+            <div class="image-box"><img src="img/a/64.jpg" alt="Hình 3" loading="lazy"></div>
+            <div class="image-box"><img src="img/a/66.jpg" alt="Hình 1" loading="lazy"></div>
             <div class="image-text">Hứ</div>
-            <div class="image-box"><img src="img/a/68.jpg" alt="Hình 3"></div>
-            <div class="image-box"><img src="img/a/1/t2.jpg" alt="Hình 1"></div>
-            <div class="image-box"><img src="img/a/70.jpg" alt="Hình 1"></div>
-            <div class="image-box"><img src="img/a/72.jpg" alt="Hình 3"></div>
-            <div class="image-box"><img src="img/a/74.jpg" alt="Hình 1"></div>
-            <div class="image-box"><img src="img/a/1/sn.jpg" alt="Hình 1"></div>
+            <div class="image-box"><img src="img/a/68.jpg" alt="Hình 3" loading="lazy"></div>
+            <div class="image-box"><img src="img/a/1/t2.jpg" alt="Hình 1" loading="lazy"></div>
+            <div class="image-box"><img src="img/a/70.jpg" alt="Hình 1" loading="lazy"></div>
+            <div class="image-box"><img src="img/a/72.jpg" alt="Hình 3" loading="lazy"></div>
+            <div class="image-box"><img src="img/a/74.jpg" alt="Hình 1" loading="lazy"></div>
+            <div class="image-box"><img src="img/a/1/sn.jpg" alt="Hình 1" loading="lazy"></div>
             <div class="image-text">Chúc mừng sinh nhật embe nè 24/09</div>
-            <div class="image-box"><img src="img/a/1/sn1.jpg" alt="Hình 1"></div>
-            <div class="image-box"><img src="img/a/73.jpg" alt="Hình 3"></div>
-            <div class="image-box"><img src="img/a/76.jpg" alt="Hình 3"></div>
-            <div class="image-box"><img src="img/a/78.jpg" alt="Hình 1"></div>
-            <div class="image-box"><img src="img/a/80.jpg" alt="Hình 3"></div>
+            <div class="image-box"><img src="img/a/1/sn1.jpg" alt="Hình 1" loading="lazy"></div>
+            <div class="image-box"><img src="img/a/73.jpg" alt="Hình 3" loading="lazy"></div>
+            <div class="image-box"><img src="img/a/76.jpg" alt="Hình 3" loading="lazy"></div>
+            <div class="image-box"><img src="img/a/78.jpg" alt="Hình 1" loading="lazy"></div>
+            <div class="image-box"><img src="img/a/80.jpg" alt="Hình 3" loading="lazy"></div>
             <div class="image-text">Gió lạnh tháng 10 về rùi</div>
-            <div class="image-box"><img src="img/a/82.jpg" alt="Hình 1"></div>
-            <div class="image-box"><img src="img/a/84.jpg" alt="Hình 3"></div>
-            <div class="image-box"><img src="img/a/86.jpg" alt="Hình 1"></div>
-            <div class="image-box"><img src="img/a/88.jpg" alt="Hình 3"></div>
-            <div class="image-box"><img src="img/a/90.jpg" alt="Hình 1"></div>
-            <div class="image-box"><img src="img/a/1/vq.jpg" alt="Hình 3"></div>
+            <div class="image-box"><img src="img/a/82.jpg" alt="Hình 1" loading="lazy"></div>
+            <div class="image-box"><img src="img/a/84.jpg" alt="Hình 3" loading="lazy"></div>
+            <div class="image-box"><img src="img/a/86.jpg" alt="Hình 1" loading="lazy"></div>
+            <div class="image-box"><img src="img/a/88.jpg" alt="Hình 3" loading="lazy"></div>
+            <div class="image-box"><img src="img/a/90.jpg" alt="Hình 1" loading="lazy"></div>
+            <div class="image-box"><img src="img/a/1/vq.jpg" alt="Hình 3" loading="lazy"></div>
             <div class="image-text">Em lại về quê lần 3 🥲😭</div>
-            <div class="image-box"><img src="img/a/1/vq1.jpg" alt="Hình 3"></div>
-            <div class="image-box"><img src="img/a/1/cf1.jpg" alt="Hình 1"></div>
-            <div class="image-box"><img src="img/a/1/cf2.jpg" alt="Hình 1"></div>
+            <div class="image-box"><img src="img/a/1/vq1.jpg" alt="Hình 3" loading="lazy"></div>
+            <div class="image-box"><img src="img/a/1/cf1.jpg" alt="Hình 1" loading="lazy"></div>
+            <div class="image-box"><img src="img/a/1/cf2.jpg" alt="Hình 1" loading="lazy"></div>
             <div class="image-text">Coffe tháng 11 học bài nè</div>
-            <div class="image-box"><img src="img/a/92.jpg" alt="Hình 3"></div>
-            <div class="image-box"><img src="img/a/1/xp4.jpg" alt="Hình 1"></div>
-            <div class="image-box"><img src="img/a/94.jpg" alt="Hình 1"></div>
-            <div class="image-box"><img src="img/a/96.jpg" alt="Hình 3"></div>
-            <div class="image-box"><img src="img/a/1/ne4.jpg" alt="Hình 1"></div>
-            <div class="image-box"><img src="img/a/1/ne5.jpg" alt="Hình 1"></div>
-            <div class="image-box"><img src="img/a/98.jpg" alt="Hình 1"></div>
+            <div class="image-box"><img src="img/a/92.jpg" alt="Hình 3" loading="lazy"></div>
+            <div class="image-box"><img src="img/a/1/xp4.jpg" alt="Hình 1" loading="lazy"></div>
+            <div class="image-box"><img src="img/a/94.jpg" alt="Hình 1" loading="lazy"></div>
+            <div class="image-box"><img src="img/a/96.jpg" alt="Hình 3" loading="lazy"></div>
+            <div class="image-box"><img src="img/a/1/ne4.jpg" alt="Hình 1" loading="lazy"></div>
+            <div class="image-box"><img src="img/a/1/ne5.jpg" alt="Hình 1" loading="lazy"></div>
+            <div class="image-box"><img src="img/a/98.jpg" alt="Hình 1" loading="lazy"></div>
             <div class="image-text">Quà Noel quá là xinh nè</div>
-            <div class="image-box"><img src="img/a/1/ne2.jpg" alt="Hình 1"></div>
-            <div class="image-box"><img src="img/a/1/ne3.jpg" alt="Hình 1"></div>
+            <div class="image-box"><img src="img/a/1/ne2.jpg" alt="Hình 1" loading="lazy"></div>
+            <div class="image-box"><img src="img/a/1/ne3.jpg" alt="Hình 1" loading="lazy"></div>
             <div class="image-text">Xinh đáo để, xinh nghiêng nước nghiền thành, xinh hết phần thiên hạ</div>
-            <div class="image-box"><img src="img/a/100.jpg" alt="Hình 3"></div>
-            <div class="image-box"><img src="img/a/102.jpg" alt="Hình 1"></div>
-            <div class="image-box"><img src="img/a/104.jpg" alt="Hình 3"></div>
-            <div class="image-box"><img src="img/a/106.jpg" alt="Hình 1"></div>
-            <div class="image-box"><img src="img/a/1/vnx4.jpg" alt="Hình 3"></div>
+            <div class="image-box"><img src="img/a/100.jpg" alt="Hình 3" loading="lazy"></div>
+            <div class="image-box"><img src="img/a/102.jpg" alt="Hình 1" loading="lazy"></div>
+            <div class="image-box"><img src="img/a/104.jpg" alt="Hình 3" loading="lazy"></div>
+            <div class="image-box"><img src="img/a/106.jpg" alt="Hình 1" loading="lazy"></div>
+            <div class="image-box"><img src="img/a/1/vnx4.jpg" alt="Hình 3" loading="lazy"></div>
             <div class="image-text">Lại về nhà nữa trừi ưi X4 buồn - huhu </div>
-            <div class="image-box"><img src="img/a/108.jpg" alt="Hình 3"></div>
-            <div class="image-box"><img src="img/a/1/te5.jpg" alt="Hình 1"></div>
-            <div class="image-box"><img src="img/a/1/te6.jpg" alt="Hình 1"></div>
-            <div class="image-box"><img src="img/a/1/te7.jpg" alt="Hình 1"></div>
+            <div class="image-box"><img src="img/a/108.jpg" alt="Hình 3" loading="lazy"></div>
+            <div class="image-box"><img src="img/a/1/te5.jpg" alt="Hình 1" loading="lazy"></div>
+            <div class="image-box"><img src="img/a/1/te6.jpg" alt="Hình 1" loading="lazy"></div>
+            <div class="image-box"><img src="img/a/1/te7.jpg" alt="Hình 1" loading="lazy"></div>
             <div class="image-text">Mùng 3 Tết embe lên đồ nè xinh ỏ</div>
-            <div class="image-box"><img src="img/a/1/te8.jpg" alt="Hình 1"></div>
-            <div class="image-box"><img src="img/a/1/te9.jpg" alt="Hình 1"></div>
+            <div class="image-box"><img src="img/a/1/te8.jpg" alt="Hình 1" loading="lazy"></div>
+            <div class="image-box"><img src="img/a/1/te9.jpg" alt="Hình 1" loading="lazy"></div>
             <div class="image-text">Một từ thui - xinh - đẹp</div>
 
         </div>
-        <div class="text-center">APRIL 2024</div>
+        <div class="text-center">24/02/2024</div>
         <div class="column">
-            <div class="image-box"><img src="img/a/8.jpg" alt="Hình 2"></div>
-            <div class="image-box"><img src="img/a/4.jpg" alt="Hình 4"></div>
+            <div class="image-box"><img src="img/a/8.jpg" alt="Hình 2" loading="lazy"></div>
+            <div class="image-box"><img src="img/a/4.jpg" alt="Hình 4" loading="lazy"></div>
             <div class="image-text">Bó hoa đầu tiên anh tặng💖, tuy ko xinh nhưng có vần còn 🤣</div>
-            <div class="image-box"><img src="img/a/9.jpg" alt="Hình 1"></div>
-            <div class="image-box"><img src="img/a/11.jpg" alt="Hình 3"></div>
-            <div class="image-box"><img src="img/a/13.jpg" alt="Hình 1"></div>
+            <div class="image-box"><img src="img/a/9.jpg" alt="Hình 1" loading="lazy"></div>
+            <div class="image-box"><img src="img/a/11.jpg" alt="Hình 3" loading="lazy"></div>
+            <div class="image-box"><img src="img/a/13.jpg" alt="Hình 1" loading="lazy"></div>
             <div class="image-text">Embe tự thưởng cho bản thân sau nhiều ngày cố gắng nè</div>
-            <div class="image-box"><img src="img/a/15.jpg" alt="Hình 3"></div>
-            <div class="image-box"><img src="img/a/17.jpg" alt="Hình 1"></div>
-            <div class="image-box"><img src="img/a/19.jpg" alt="Hình 3"></div>
-            <div class="image-box"><img src="img/a/21.jpg" alt="Hình 1"></div>
+            <div class="image-box"><img src="img/a/15.jpg" alt="Hình 3" loading="lazy"></div>
+            <div class="image-box"><img src="img/a/17.jpg" alt="Hình 1" loading="lazy"></div>
+            <div class="image-box"><img src="img/a/19.jpg" alt="Hình 3" loading="lazy"></div>
+            <div class="image-box"><img src="img/a/21.jpg" alt="Hình 1" loading="lazy"></div>
             <div class="image-text">Qua học cùng anh nhưng anh lại ngủ mất, để embe học một mình</div>
-            <div class="image-box"><img src="img/a/1/t3.jpg" alt="Hình 1"></div>
-            <div class="image-box"><img src="img/a/1/t3 (3).jpg" alt="Hình 1"></div>
+            <div class="image-box"><img src="img/a/1/t3.jpg" alt="Hình 1" loading="lazy"></div>
+            <div class="image-box"><img src="img/a/1/t3 (3).jpg" alt="Hình 1" loading="lazy"></div>
             <div class="image-text">Tháng 3 đi chơi lăng vua nè</div>
-            <div class="image-box"><img src="img/a/25.jpg" alt="Hình 1"></div>
-            <div class="image-box"><img src="img/a/27.jpg" alt="Hình 3"></div>
-            <div class="image-box"><img src="img/a/29.jpg" alt="Hình 1"></div>
+            <div class="image-box"><img src="img/a/25.jpg" alt="Hình 1" loading="lazy"></div>
+            <div class="image-box"><img src="img/a/27.jpg" alt="Hình 3" loading="lazy"></div>
+            <div class="image-box"><img src="img/a/29.jpg" alt="Hình 1" loading="lazy"></div>
             <div class="image-text">Ở nhà xinh cỡ này, ko biết ra ngoài có bàn uống ước ko ta</div>
-            <div class="image-box"><img src="img/a/31.jpg" alt="Hình 3"></div>
-            <div class="image-box"><img src="img/a/33.jpg" alt="Hình 1"></div>
-            <div class="image-box"><img src="img/a/35.jpg" alt="Hình 3"></div>            
-            <div class="image-box"><img src="img/a/1/t4.jpg" alt="Hình 1"></div>
+            <div class="image-box"><img src="img/a/31.jpg" alt="Hình 3" loading="lazy"></div>
+            <div class="image-box"><img src="img/a/33.jpg" alt="Hình 1" loading="lazy"></div>
+            <div class="image-box"><img src="img/a/35.jpg" alt="Hình 3" loading="lazy"></div>            
+            <div class="image-box"><img src="img/a/1/t4.jpg" alt="Hình 1" loading="lazy"></div>
             <div class="image-text">Đầu tháng 4 đi đồi vọng cảnh mà huhuhuhu😂</div>
-            <div class="image-box"><img src="img/a/1/t4 (4).jpg" alt="Hình 1"></div>
+            <div class="image-box"><img src="img/a/1/t4 (4).jpg" alt="Hình 1" loading="lazy"></div>
             <div class="image-text">Em về nhà lần 1 buồn x1😭</div>
-            <div class="image-box"><img src="img/a/1/t4 (3).jpg" alt="Hình 1"></div>
-            <div class="image-box"><img src="img/a/1/t4 (2).jpg" alt="Hình 1"></div>
-            <div class="image-box"><img src="img/a/53.jpg" alt="Hình 1"></div>
-            <div class="image-box"><img src="img/a/37.jpg" alt="Hình 2"></div>
+            <div class="image-box"><img src="img/a/1/t4 (3).jpg" alt="Hình 1" loading="lazy"></div>
+            <div class="image-box"><img src="img/a/1/t4 (2).jpg" alt="Hình 1" loading="lazy"></div>
+            <div class="image-box"><img src="img/a/53.jpg" alt="Hình 1" loading="lazy"></div>
+            <div class="image-box"><img src="img/a/37.jpg" alt="Hình 2" loading="lazy"></div>
             <div class="image-text">Hè về, Hai mình về HT đi ăn mỳ cay nè</div>
-            <div class="image-box"><img src="img/a/39.jpg" alt="Hình 4"></div>
-            <div class="image-box"><img src="img/a/41.jpg" alt="Hình 1"></div>
-            <div class="image-box"><img src="img/a/43.jpg" alt="Hình 3"></div>
-            <div class="image-box"><img src="img/a/45.jpg" alt="Hình 1"></div>
-            <div class="image-box"><img src="img/a/47.jpg" alt="Hình 3"></div>
+            <div class="image-box"><img src="img/a/39.jpg" alt="Hình 4" loading="lazy"></div>
+            <div class="image-box"><img src="img/a/41.jpg" alt="Hình 1" loading="lazy"></div>
+            <div class="image-box"><img src="img/a/43.jpg" alt="Hình 3" loading="lazy"></div>
+            <div class="image-box"><img src="img/a/45.jpg" alt="Hình 1" loading="lazy"></div>
+            <div class="image-box"><img src="img/a/47.jpg" alt="Hình 3" loading="lazy"></div>
             <div class="image-text">Nhìn cái mặt embe thấy cưng ghê á</div>
-            <div class="image-box"><img src="img/a/49.jpg" alt="Hình 1"></div>
-            <div class="image-box"><img src="img/a/51.jpg" alt="Hình 3"></div>
-            <div class="image-box"><img src="img/a/1/dn2.jpg" alt="Hình 1"></div>
-            <div class="image-box"><img src="img/a/55.jpg" alt="Hình 1"></div>
+            <div class="image-box"><img src="img/a/49.jpg" alt="Hình 1" loading="lazy"></div>
+            <div class="image-box"><img src="img/a/51.jpg" alt="Hình 3" loading="lazy"></div>
+            <div class="image-box"><img src="img/a/1/dn2.jpg" alt="Hình 1" loading="lazy"></div>
+            <div class="image-box"><img src="img/a/55.jpg" alt="Hình 1" loading="lazy"></div>
             <div class="image-text">Uống nước thui mà có khách đến chơi 🙊</div>
-            <div class="image-box"><img src="img/a/1/dn3.jpg" alt="Hình 1"></div>
-            <div class="image-box"><img src="img/a/57.jpg" alt="Hình 3"></div>
-            <div class="image-box"><img src="img/a/59.jpg" alt="Hình 1"></div>
-            <div class="image-box"><img src="img/a/61.jpg" alt="Hình 3"></div>
+            <div class="image-box"><img src="img/a/1/dn3.jpg" alt="Hình 1" loading="lazy"></div>
+            <div class="image-box"><img src="img/a/57.jpg" alt="Hình 3" loading="lazy"></div>
+            <div class="image-box"><img src="img/a/59.jpg" alt="Hình 1" loading="lazy"></div>
+            <div class="image-box"><img src="img/a/61.jpg" alt="Hình 3" loading="lazy"></div>
             <div class="image-text">Nó ngonnnnnn gì đâu</div>            
-            <div class="image-box"><img src="img/a/65.jpg" alt="Hình 3"></div>
+            <div class="image-box"><img src="img/a/65.jpg" alt="Hình 3" loading="lazy"></div>
             <div class="image-text">Đầu tháng 9 đi chụp hình cho embe nè</div>
-            <div class="image-box"><img src="img/a/1/t.jpg" alt="Hình 1"></div>
-            <div class="image-box"><img src="img/a/1/t1.jpg" alt="Hình 1"></div>
-            <div class="image-box"><img src="img/a/69.jpg" alt="Hình 3"></div>
-            <div class="image-box"><img src="img/a/67.jpg" alt="Hình 1"></div>
+            <div class="image-box"><img src="img/a/1/t.jpg" alt="Hình 1" loading="lazy"></div>
+            <div class="image-box"><img src="img/a/1/t1.jpg" alt="Hình 1" loading="lazy"></div>
+            <div class="image-box"><img src="img/a/69.jpg" alt="Hình 3" loading="lazy"></div>
+            <div class="image-box"><img src="img/a/67.jpg" alt="Hình 1" loading="lazy"></div>
             <div class="image-text">Chuẩn bị sinh nhật cho embe thui</div>
-            <div class="image-box"><img src="img/a/1/sn3.jpg" alt="Hình 3"></div>
-            <div class="image-box"><img src="img/a/71.jpg" alt="Hình 1"></div>
-            <div class="image-box"><img src="img/a/1/sn2.jpg" alt="Hình 3"></div>
+            <div class="image-box"><img src="img/a/1/sn3.jpg" alt="Hình 3" loading="lazy"></div>
+            <div class="image-box"><img src="img/a/71.jpg" alt="Hình 1" loading="lazy"></div>
+            <div class="image-box"><img src="img/a/1/sn2.jpg" alt="Hình 3" loading="lazy"></div>
             <div class="image-text">Ảnh xinh quá ạạ</div>
-            <div class="image-box"><img src="img/a/77.jpg" alt="Hình 3"></div>
-            <div class="image-box"><img src="img/a/79.jpg" alt="Hình 1"></div>
-            <div class="image-box"><img src="img/a/81.jpg" alt="Hình 3"></div>
-            <div class="image-box"><img src="img/a/83.jpg" alt="Hình 1"></div>
-            <div class="image-box"><img src="img/a/85.jpg" alt="Hình 3"></div>
-            <div class="image-box"><img src="img/a/87.jpg" alt="Hình 1"></div>
+            <div class="image-box"><img src="img/a/77.jpg" alt="Hình 3" loading="lazy"></div>
+            <div class="image-box"><img src="img/a/79.jpg" alt="Hình 1" loading="lazy"></div>
+            <div class="image-box"><img src="img/a/81.jpg" alt="Hình 3" loading="lazy"></div>
+            <div class="image-box"><img src="img/a/83.jpg" alt="Hình 1" loading="lazy"></div>
+            <div class="image-box"><img src="img/a/85.jpg" alt="Hình 3" loading="lazy"></div>
+            <div class="image-box"><img src="img/a/87.jpg" alt="Hình 1" loading="lazy"></div>
             <div class="image-text">Ánh nắng đầu tháng 11, cùng tháng linh hồn</div>
-            <div class="image-box"><img src="img/a/1/t11.jpg" alt="Hình 3"></div>
-            <div class="image-box"><img src="img/a/89.jpg" alt="Hình 3"></div>
-            <div class="image-box"><img src="img/a/91.jpg" alt="Hình 1"></div>
-            <div class="image-box"><img src="img/a/93.jpg" alt="Hình 3"></div>
-            <div class="image-box"><img src="img/a/101.jpg" alt="Hình 1"></div>
+            <div class="image-box"><img src="img/a/1/t11.jpg" alt="Hình 3" loading="lazy"></div>
+            <div class="image-box"><img src="img/a/89.jpg" alt="Hình 3" loading="lazy"></div>
+            <div class="image-box"><img src="img/a/91.jpg" alt="Hình 1" loading="lazy"></div>
+            <div class="image-box"><img src="img/a/93.jpg" alt="Hình 3" loading="lazy"></div>
+            <div class="image-box"><img src="img/a/101.jpg" alt="Hình 1" loading="lazy"></div>
             <div class="image-text">Công Chúa vào rùi trời ơi!</div>
-            <div class="image-box"><img src="img/a/1/xp1.jpg" alt="Hình 1"></div>
-            <div class="image-box"><img src="img/a/1/xp.jpg" alt="Hình 1"></div>
+            <div class="image-box"><img src="img/a/1/xp1.jpg" alt="Hình 1" loading="lazy"></div>
+            <div class="image-box"><img src="img/a/1/xp.jpg" alt="Hình 1" loading="lazy"></div>
             <div class="image-text">Chụp ảnh photobooth cùng embe nè</div>
-            <div class="image-box"><img src="img/a/1/xp2.jpg" alt="Hình 1"></div>
-            <div class="image-box"><img src="img/a/1/ne.jpg" alt="Hình 1"></div>
+            <div class="image-box"><img src="img/a/1/xp2.jpg" alt="Hình 1" loading="lazy"></div>
+            <div class="image-box"><img src="img/a/1/ne.jpg" alt="Hình 1" loading="lazy"></div>
             <div class="image-text">Dầu tháng 12 chụp hình noel xinh xỉu nè💖</div>
-            <div class="image-box"><img src="img/a/97.jpg" alt="Hình 3"></div>
-            <div class="image-box"><img src="img/a/1/ne1.jpg" alt="Hình 1"></div>
-            <div class="image-box"><img src="img/a/1/ne6.jpg" alt="Hình 1"></div>
-            <div class="image-box"><img src="img/a/1/cd4.jpg" alt="Hình 3"></div>
+            <div class="image-box"><img src="img/a/97.jpg" alt="Hình 3" loading="lazy"></div>
+            <div class="image-box"><img src="img/a/1/ne1.jpg" alt="Hình 1" loading="lazy"></div>
+            <div class="image-box"><img src="img/a/1/ne6.jpg" alt="Hình 1" loading="lazy"></div>
+            <div class="image-box"><img src="img/a/1/cd4.jpg" alt="Hình 3" loading="lazy"></div>
             <div class="image-text">Đón năm mới 2025 cùng công chúa nhỏ, cùng những lời chúc yêu thương đầu năm mới bên nhau - may mắn - thành công</div>
-            <div class="image-box"><img src="img/a/1/cd2.jpg" alt="Hình 3"></div>
-            <div class="image-box"><img src="img/a/1/cd3.jpg" alt="Hình 3"></div>
-            <div class="image-box"><img src="img/a/1/cd4.jpg" alt="Hình 3"></div>
-            <div class="image-box"><img src="img/a/1/cd1.jpg" alt="Hình 1"></div>
+            <div class="image-box"><img src="img/a/1/cd2.jpg" alt="Hình 3" loading="lazy"></div>
+            <div class="image-box"><img src="img/a/1/cd3.jpg" alt="Hình 3" loading="lazy"></div>
+            <div class="image-box"><img src="img/a/1/cd4.jpg" alt="Hình 3" loading="lazy"></div>
+            <div class="image-box"><img src="img/a/1/cd1.jpg" alt="Hình 1" loading="lazy"></div>
             <div class="image-text">Đầu năm người yêu nấu là cả năm xác định rùi</div>
-            <div class="image-box"><img src="img/a/103.jpg" alt="Hình 3"></div>
-            <div class="image-box"><img src="img/a/105.jpg" alt="Hình 1"></div>
-            <div class="image-box"><img src="img/a/107.jpg" alt="Hình 3"></div>
+            <div class="image-box"><img src="img/a/103.jpg" alt="Hình 3" loading="lazy"></div>
+            <div class="image-box"><img src="img/a/105.jpg" alt="Hình 1" loading="lazy"></div>
+            <div class="image-box"><img src="img/a/107.jpg" alt="Hình 3" loading="lazy"></div>
             <div class="image-text">NNhững ngày tết vất vả của hai đứa chúng mình</div>
-            <div class="image-box"><img src="img/a/109.jpg" alt="Hình 1"></div>
+            <div class="image-box"><img src="img/a/109.jpg" alt="Hình 1" loading="lazy"></div>
             <div class="image-text">Nhưng vẫn có một bông hoa vẫn luôn bận tỏa sáng nè</div>
-            <div class="image-box"><img src="img/a/1/te2.jpg" alt="Hình 1"></div>
-            <div class="image-box"><img src="img/a/1/te1.jpg" alt="Hình 1"></div>
+            <div class="image-box"><img src="img/a/1/te2.jpg" alt="Hình 1" loading="lazy"></div>
+            <div class="image-box"><img src="img/a/1/te1.jpg" alt="Hình 1" loading="lazy"></div>
             <div class="image-text">Chúc mừng ngày Valentine đầu tiên chúng mình bên nhau nè</div>
-            <div class="image-box"><img src="img/a/1/te3.jpg" alt="Hình 1"></div>
-            <div class="image-box"><img src="img/a/1/te4.jpg" alt="Hình 1"></div>
+            <div class="image-box"><img src="img/a/1/te3.jpg" alt="Hình 1" loading="lazy"></div>
+            <div class="image-box"><img src="img/a/1/te4.jpg" alt="Hình 1" loading="lazy"></div>
         </div>                  
     </div> 
     <div class="end-message" style="display: none;">
