@@ -3,72 +3,84 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thiệp Mời</title>
+    <title>Thư Mời</title>
     <style>
         body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background: url('img/nen2.png') no-repeat center center fixed;
+            background: url('/img/nen2.png') no-repeat center center fixed;
             background-size: cover;
-            margin: 0;
-            flex-direction: column;
-            text-align: center;
             font-family: 'Times New Roman', serif;
-            color: #2E4F27;
+            color: #0a2e4d;
+            text-align: center;
+            padding-top: 0.01vh;
+        }
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('img/a/112.jpg') no-repeat center center fixed;
+            background-size: cover;
+            opacity: 0.3;
+            z-index: -1;
         }
         .invitation {
-            background: rgba(255, 255, 255, 0.8);
-            padding: 2vw;
-            border-radius: 1vw;
-            max-width: 80%;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 11vw;
+            border-radius: 15px;
+            display: inline-block;
+            max-width: 100%;
         }
-        h1, h2 {
-            margin: 0.5vw 0;
+        h1 {
+            font-size: 9vw;
+            color: #05685e;
         }
-        h1{
-          size: 10vw;  
+        h2 {
+            font-size: 5vw;
+            color: #003366;
         }
-        p {
-            font-size: 1.2vw;
+        #class-tep{
+            margin-top: -6vw;
+            margin-bottom: 10vw;
+        }
+        .highlight {
+            color: red;
+            font-weight: bold;
+        }
+        .section-title {
+            color: #085f61;
+            font-weight: bold;
+            font-size: 6vw;
+        }
+        .schedule {
+            text-align: left;
             margin-top: 1vw;
+            font-size: 3.5vw;
         }
-        .confirmation {
-            margin-top: 2vw;
-            font-size: 1vw;
-        }
-        @media (max-width: 768px) {
-            p {
-                font-size: 2vw;
-            }
-            .confirmation {
-                font-size: 1.5vw;
-            }
-        }
-        @media (max-width: 480px) {
-            p {
-                font-size: 3vw;
-            }
-            .confirmation {
-                font-size: 2vw;
-            }
+        .footer {
+            margin-top: 10vw;
+            font-size: 3vw;
         }
     </style>
 </head>
 <body>
     <div class="invitation">
-        <h3>HAPPY ANNIVERSARY ONE YEAR</h3>
-        <h1>VĂN ĐÌNH & LINH XUÂN</h1>
-        <p>
-            Chúng tôi hân hạnh mời bạn đến dự lễ cưới của chúng tôi vào ngày 9/5/2020
-            lúc 2 giờ trưa tại nhà hàng Á Châu. Không cần váy áo lộng lẫy, vì đây chỉ là một
-            buổi gặp mặt ấm cúng cùng gia đình và bạn bè trong không khí thoải mái!
-        </p>
-        <p class="confirmation">
-            Xác nhận tham dự với Châu 093456789 trước ngày 18 tháng 4. Hẹn gặp bạn ở đó nhé!
-        </p>
+        <h3 id="class-tep">HAPPY ANNIVERSARY ONE YEAR</h3>
+        <h1> VĂN ĐÌNH <br> & <br> LINH XUÂN </h1>
+        <h2 class="highlight">Thư mời</h2>
+        <p><strong>Kính gửi: Công Chúa nhỏ đáng yêu</strong></p>
+        <p>Vì để tổ chức ngày lễ kỷ niệm 1 năm chúng mình yêu nhau, anh xin được mạn phép kính mời công chúa nhỏ của anh đồng hành cùng anh nhân ngày trọng đại này ạ.</p>
+        <p class="section-title">Thời gian tổ chức:</p>
+        <p><strong>Thời gian:</strong> Nguyên ngày 20 tháng 2 năm 2025</p>
+        <p><strong>Bắt đầu tại:</strong> 13/58 Hàm Nghi, Thành phố Huế</p>
+        <h3>Lịch trình cụ thể như sau:</h3>
+        <div class="schedule">
+            <p><span class="highlight">SÁNG:</span> Bắt đầu đón em vào lúc 4:45p, sau đó tham dự thánh lễ. Tiếp theo 7h ăn sáng (bún chả cá hoặc...), sau đó đi coffee đọc sách và cùng nhau trò chuyện.</p>
+            <p><span class="highlight">TRƯA:</span> Bắt đầu từ 10:30, chúng mình sẽ nấu ăn và ăn cơm cùng nhau. Sau đó ngủ trưa.</p>
+            <p><span class="highlight">CHIỀU:</span> Bắt đầu từ 2h, chúng mình sẽ tạm xa nhau để vệ sinh cá nhân và gặp lại vào lúc 4:30h. Chúng mình sẽ đi ăn đồ nướng tại quán Hẻm Huế (01 Tố Hữu - Tp. Huế).</p>
+            <p><span class="highlight">TỐI:</span> Chúng mình sẽ đi dạo thành phố và mua chút đồ về uống và xem phim tại nhà.</p>
+        </div>
+        <p class="footer">Ngày 16 tháng 2, Cám ơn embe<br> Mong phản hồi từ embe sớm ạ!</p>
     </div>
 </body>
 </html>
