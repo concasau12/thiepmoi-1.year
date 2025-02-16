@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thiệp Mời</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: url('img/nen2.png') no-repeat center center fixed;
+            background-size: cover;
+            margin: 0;
+            flex-direction: column;
+            text-align: center;
+            font-family: 'Times New Roman', serif;
+            color: #2E4F27;
+        }
+        .invitation {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 2vw;
+            border-radius: 1vw;
+            max-width: 80%;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        h1, h2 {
+            margin: 0.5vw 0;
+        }
+        h1{
+          size: 10vw;  
+        }
+        p {
+            font-size: 1.2vw;
+            margin-top: 1vw;
+        }
+        .confirmation {
+            margin-top: 2vw;
+            font-size: 1vw;
+        }
+        @media (max-width: 768px) {
+            p {
+                font-size: 2vw;
+            }
+            .confirmation {
+                font-size: 1.5vw;
+            }
+        }
+        @media (max-width: 480px) {
+            p {
+                font-size: 3vw;
+            }
+            .confirmation {
+                font-size: 2vw;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="invitation">
+        <h3>HAPPY ANNIVERSARY ONE YEAR</h3>
+        <h1>VĂN ĐÌNH & LINH XUÂN</h1>
+        <p>
+            Chúng tôi hân hạnh mời bạn đến dự lễ cưới của chúng tôi vào ngày 9/5/2020
+            lúc 2 giờ trưa tại nhà hàng Á Châu. Không cần váy áo lộng lẫy, vì đây chỉ là một
+            buổi gặp mặt ấm cúng cùng gia đình và bạn bè trong không khí thoải mái!
+        </p>
+        <p class="confirmation">
+            Xác nhận tham dự với Châu 093456789 trước ngày 18 tháng 4. Hẹn gặp bạn ở đó nhé!
+        </p>
+    </div>
+</body>
+</html>
