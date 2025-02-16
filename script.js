@@ -36,20 +36,4 @@ function checkPassword() {
             document.getElementById("error-message").innerText = "";
         }, 2000);
     }   
-}
-
-
-
-<script>
-        document.addEventListener("DOMContentLoaded", function () {
-            let container = document.querySelector(".container");
-            function scrollImages() {
-                if (container.scrollTop + container.clientHeight >= container.scrollHeight) {
-                    container.scrollTop = 0;
-                } else {
-                    container.scrollTop += 6;
-                }
-            }
-            setInterval(scrollImages, 30);
-        });
-    </script>
+}    
