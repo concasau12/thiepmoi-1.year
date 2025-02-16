@@ -14,6 +14,9 @@ body {
     font-family: 'Poppins', Arial, sans-serif;
 }
 
+#container{
+    padding-top: 400px;
+}
 #password-screen {
     text-align: center;
     background: rgba(255, 255, 255, 0.3);
@@ -21,7 +24,6 @@ body {
     border-radius: 15px;
     backdrop-filter: blur(10px);
 }
-
 #password {
     width: 80%;
     padding: 15px;
@@ -32,7 +34,7 @@ body {
     background-color: white;
     font-weight: bold;
     letter-spacing: 5px;
-    color: #333;
+    color: #333; 
 }
 
 #keypad {
@@ -46,7 +48,7 @@ button {
     padding: 20px;
     font-size: 22px;
     font-weight: bold;
-    background: linear-gradient(145deg, #ff80ab, #477acc);
+    background: linear-gradient(145deg, #ff80ab, #2d64bc);
     border: none;
     border-radius: 15px;
     cursor: pointer;
