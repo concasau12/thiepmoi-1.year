@@ -121,9 +121,7 @@
                     container.scrollTop += window.innerHeight * 0.008;
                 }
             }
-        });
 
-        document.addEventListener("DOMContentLoaded", function() {
             let lazyImages = document.querySelectorAll("img.lazy-load");
 
             let observer = new IntersectionObserver(entries => {
@@ -141,7 +139,8 @@
                 observer.observe(img);
             });
         });
-            </script>
+        
+    </script>
 
     
 </head>
