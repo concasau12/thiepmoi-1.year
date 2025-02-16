@@ -13,7 +13,16 @@ body {
     align-items: center;
     font-family: 'Poppins', Arial, sans-serif;
 }
-
+#content{
+    text-align: center;
+    font: 15px Arial, sans-serif;
+    color: #4b34cc;
+}
+#content p{
+    text-align: center;
+    font: 20px Arial, sans-serif;
+    color: #062849;
+}
 #container{
     padding-top: 400px;
 }
@@ -23,6 +32,7 @@ body {
     padding: 20px;
     border-radius: 15px;
     backdrop-filter: blur(10px);
+    
 }
 #password {
     width: 80%;

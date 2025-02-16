@@ -1,0 +1,53 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: #f4f4f4;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    width: 90%;
+    max-width: 400px;
+    background: #eaeaea;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    overflow-y: auto;
+    height: 100vh;
+}
+
+.gallery {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.gallery-item {
+    width: 100%;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.gallery-item:hover {
+    transform: scale(1.05);
+}
+
+/* Dòng chữ ở giữa */
+.center-text {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    background: white;
+    padding: 8px 30px;
+    border-radius: 10px;
+    transform: rotate(-90deg);
+}
