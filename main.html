@@ -111,14 +111,14 @@
         document.addEventListener("DOMContentLoaded", function () {
             let container = document.querySelector(".container");
             let endMessage = document.querySelector(".end-message");
-            let scrollInterval = setInterval(scrollImages, 30);
+            let scrollInterval = setInterval(scrollImages, 10);
             
             function scrollImages() {
                 if (container.scrollTop + container.clientHeight >= container.scrollHeight) {
                     clearInterval(scrollInterval);
                     endMessage.style.display = "block";
                 } else {
-                    container.scrollTop += window.innerHeight * 0.008;
+                    container.scrollTop += window.innerHeight * 0.010;
                 }
             }
 
