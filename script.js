@@ -20,14 +20,8 @@ function checkPassword() {
 
         document.getElementById("password-screen").style.display = "none";
        
-        // Hiện phần nội dung sau 5 giây
-        setTimeout(() => {
-            document.getElementById("content").style.display = "block";
-        }, 100);
+        document.getElementById("content").style.display = "block";
 
-        setTimeout(() => {
-            window.location.href = "main.html";
-        }, 5000);
     } else { 
         document.getElementById("error-message").innerText = "Mật khẩu sai!";
         
