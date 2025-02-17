@@ -30,4 +30,29 @@ function checkPassword() {
             document.getElementById("error-message").innerText = "";
         }, 2000);
     }   
-}    
+} 
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    let audio = document.getElementById("background-music");
+
+    // Kiểm tra trạng thái nhạc từ Local Storage
+    let isPlaying = localStorage.getItem("musicPlaying") === "true";
+
+    // Tạo Audio mới nếu chưa có
+    if (!window.audioInstance) {
+        window.audioInstance = new Audio("img/Christina Perri  A Thousand Years.mp3");
+        window.audioInstance.loop = true;
+        window.audioInstance.volume = 0.5; // Điều chỉnh âm lượng nếu cần
+    }
+    
+    // Nếu trước đó nhạc đang phát, tiếp tục phát
+    if (isPlaying) {
+        window.audioInstance.play();
+    }
+
+    // Lưu trạng thái khi người dùng rời trang
+    window.addEventListener("beforeunload", function () {
+        localStorage.setItem("musicPlaying", !window.audioInstance.paused);
+    });
+});
