@@ -4,12 +4,101 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Happy Anniversary</title>
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            background: url('img/1.png') no-repeat center/cover;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            font-family: 'Poppins', Arial, sans-serif;
+            padding-bottom: 5vh;
+        }
+
+        #container {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.3);
+            padding: 20px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        #password {
+            width: 70%;
+            padding: 15px;
+            font-size: 24px;
+            text-align: center;
+            border-radius: 20px;
+            border: 2px solid #9a425f;
+            background-color: white;
+            font-weight: bold;
+            letter-spacing: 5px;
+            color: #333;
+        }
+
+        #keypad {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        button {
+            padding: 15px;
+            font-size: 22px;
+            font-weight: bold;
+            background: linear-gradient(145deg, #ff80ab, #2d64bc);
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            color: white;
+            transition: 0.2s;
+            box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        button:hover {
+            transform: scale(1.1);
+            box-shadow: 6px 6px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        button:active {
+            transform: scale(0.95);
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        #error-message {
+            color: red;
+            font-size: 16px;
+            font-weight: bold;
+            margin-top: 10px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .shake {
+            animation: shake 0.3s;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            50% { transform: translateX(5px); }
+            75% { transform: translateX(-5px); }
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
 </head>
 <body>
     <div id="container">
         <div id="password-screen">
-            <input type="password" id="password" readonly>           
+            <input type="password" id="password" readonly>
             <div id="keypad">
                 <button onclick="enterDigit('1')">1</button>
                 <button onclick="enterDigit('2')">2</button>
@@ -22,21 +111,52 @@
                 <button onclick="enterDigit('9')">9</button>
                 <button onclick="clearPassword()">X</button>
                 <button onclick="enterDigit('0')">0</button>
-                <button onclick="checkPassword()">V</button>
+                <button onclick="checkPassword()">✔</button>
             </div>
-            <p id="error-message"></p>
+            <p id="error-message">Mật khẩu sai!</p>
         </div>
 
-        <div id="content" style="display: none;">
+        <div id="content" class="hidden">
             <h1>Chào mừng embe iuuu của anh!</h1>
             <p>Cảm ơn embe đã yêu thương anh bé rất nhiều trong suốt thời gian qua, sau đây embe cùng anh xem lại một chút thời gian chúng mình bên nhau nhé!.</p>
-            <button class="next-page-btn" onclick="window.location.href='main.html'">Em chọn đây nè</button>
+            <button onclick="window.location.href='main.html'">Em chọn đây nè</button>
         </div>
     </div>
-    <audio id="background-music" loop>
-        <source src="img/Christina Perri  A Thousand Years.mp3" type="audio/mp3">
-    </audio>
-      
-    <script src="script.js"></script>
+       
+    <script>
+        let enteredPassword = "";
+        const correctPassword = "240903"; 
+        const passwordInput = document.getElementById("password");
+        const errorMessage = document.getElementById("error-message");
+        const passwordScreen = document.getElementById("password-screen");
+        const content = document.getElementById("content");
+
+        function enterDigit(digit) {
+            if (enteredPassword.length < 6) {
+                enteredPassword += digit;
+                passwordInput.value = "*".repeat(enteredPassword.length);
+            }
+        }
+
+        function clearPassword() {
+            enteredPassword = "";
+            passwordInput.value = "";
+        }
+
+        function checkPassword() { 
+            if (enteredPassword === correctPassword) {
+                passwordScreen.classList.add("hidden");
+                content.classList.remove("hidden");
+            } else { 
+                errorMessage.style.opacity = "1";
+                passwordInput.classList.add("shake");
+                setTimeout(() => { 
+                    errorMessage.style.opacity = "0";
+                    passwordInput.classList.remove("shake");
+                    clearPassword();
+                }, 2000);
+            }   
+        } 
+    </script>
 </body>
 </html>

@@ -11,25 +11,27 @@
             font-family: 'Times New Roman', serif;
             color: #0a2e4d;
             text-align: center;
-            padding-top: 0.01vh;
+            margin: 0;
+            padding: 2vw;
+            overflow: hidden;
         }
         .invitation {
-            padding: 11vw;
+            padding: 5vw;
             border-radius: 15px;
+            background: rgba(222, 210, 210, 0.5);
             display: inline-block;
-            max-width: 100%;
+            max-width: 90%;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            position: relative;
         }
         h1 {
-            font-size: 9vw;
+            font-size: 7vw;
             color: #05685e;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
         }
         h2 {
-            font-size: 5vw;
+            font-size: 4vw;
             color: #003366;
-        }
-        #class-tep{
-            margin-top: -6vw;
-            margin-bottom: 10vw;
         }
         .highlight {
             color: red;
@@ -38,52 +40,63 @@
         .section-title {
             color: #085f61;
             font-weight: bold;
-            font-size: 6vw;
+            font-size: 5vw;
         }
         .schedule {
             text-align: left;
-            margin-top: 1vw;
-            font-size: 3.5vw;
+            font-size: 3vw;
+            margin: 1vw auto;
+            max-width: 80%;
         }
         .footer {
-            margin-top: 10vw;
+            margin-top: 5vw;
+            font-size: 2.5vw;
+        }
+        .reply-btn {
+            margin-top: 2vw;
+            padding: 1vw 3vw;
             font-size: 3vw;
+            color: white;
+            background: #0395f0;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        .popup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 3vw;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            display: none;
+            text-align: center;
+        }
+        .popup button {
+            margin: 1vw;
+            padding: 1vw 2vw;
+            font-size: 3vw;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .accept-btn {
+            background: #28a745;
+            color: white;
+        }
+        .decline-btn {
+            background: #dc3545;
+            color: white;
         }
     </style>
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            let audio = document.getElementById("background-music");
-
-            // Kiểm tra trạng thái nhạc từ Local Storage
-            let isPlaying = localStorage.getItem("musicPlaying") === "true";
-
-            // Tạo Audio mới nếu chưa có
-            if (!window.audioInstance) {
-                window.audioInstance = new Audio("img/Christina Perri  A Thousand Years.mp3");
-                window.audioInstance.loop = true;
-                window.audioInstance.volume = 0.5; // Điều chỉnh âm lượng nếu cần
-            }
-            
-            // Nếu trước đó nhạc đang phát, tiếp tục phát
-            if (isPlaying) {
-                window.audioInstance.play();
-            }
-
-            // Lưu trạng thái khi người dùng rời trang
-            window.addEventListener("beforeunload", function () {
-                localStorage.setItem("musicPlaying", !window.audioInstance.paused);
-            });
-        });
-    </script>
 </head>
 <body>
-    <audio id="background-music" loop>
-        <source src="img/Christina Perri  A Thousand Years.mp3" type="audio/mp3">
-    </audio>
- 
     <div class="invitation">
-        <h3 id="class-tep">HAPPY ANNIVERSARY ONE YEAR</h3>
-        <h1> VĂN ĐÌNH <br> & <br> LINH XUÂN </h1>
+        <h3>HAPPY ANNIVERSARY ONE YEAR</h3>
+        <h1>VĂN ĐÌNH <br> & <br> LINH XUÂN</h1>
         <h2 class="highlight">Thư mời</h2>
         <p><strong>Kính gửi: Công Chúa nhỏ đáng yêu</strong></p>
         <p>Vì để tổ chức ngày lễ kỷ niệm 1 năm chúng mình yêu nhau, anh xin được mạn phép kính mời công chúa nhỏ của anh đồng hành cùng anh nhân ngày trọng đại này ạ.</p>
@@ -98,6 +111,29 @@
             <p><span class="highlight">TỐI:</span> Chúng mình sẽ đi dạo thành phố và mua chút đồ về uống và xem phim tại nhà.</p>
         </div>
         <p class="footer">Ngày 16 tháng 2, Cám ơn embe<br> Mong phản hồi từ embe sớm ạ!</p>
+        <button class="reply-btn" onclick="showPopup()">PHẢN HỒI</button>
     </div>
+    
+    <div class="popup" id="popup">
+        <p>Em có đồng ý tham gia không? 💖</p>
+        <button class="accept-btn" onclick="acceptInvitation()">Đồng ý</button>
+        <button class="decline-btn" onclick="declineInvitation()">Từ chối</button>
+    </div>
+
+    <script>
+        function showPopup() {
+            document.getElementById("popup").style.display = "block";
+        }
+        function closePopup() {
+            document.getElementById("popup").style.display = "none";
+        }
+        function acceptInvitation() {
+            alert("Yay! Em đã đồng ý! 💖");
+            closePopup();
+        }
+        function declineInvitation() {
+            alert("Em đã chọn sai😡, vui lòng chọn lại!");
+        }
+    </script>
 </body>
 </html>
