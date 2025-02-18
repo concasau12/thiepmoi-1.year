@@ -75,7 +75,7 @@
             font-size: 2vw;
             color: #4766c4;
             padding: 1vw;
-            background: rgba(135, 125, 125, 0.7);
+            background: rgba(255, 255, 255, 0.4);
             border-radius: 1vw;
             opacity: 0;
             transition: opacity 0.5s ease-in-out;
@@ -84,7 +84,7 @@
         .end-message h1{
             font-style: italic;
             font-size: 5vw;
-            color: rgb(5, 71, 125);
+            color: rgb(20, 54, 87);
         }
         .next-page-btn {
             display: inline-block;
@@ -171,11 +171,25 @@
         }
         //trangphatsanhactrangphatsanhac
         document.addEventListener("DOMContentLoaded", function () {
-            let audio = new Audio("img/Christina Perri  A Thousand Years.mp3");
-            audio.loop = true;
-            audio.volume = 0.5; // Điều chỉnh âm lượng nếu cần
-            audio.play();
+            // Kiểm tra xem trang đã được tải lại chưa (dựa trên sessionStorage)
+            if (!sessionStorage.getItem("audioPlayed")) {
+                // Tạo đối tượng audio
+                let audio = new Audio("img/s1s1.mp3");
+                audio.loop = true;
+                audio.volume = 0.5; // Điều chỉnh âm lượng nếu cần
+                audio.play();
+
+                // Đánh dấu rằng âm thanh đã được phát (lưu vào sessionStorage)
+                sessionStorage.setItem("audioPlayed", "true");
+
+                // Lắng nghe sự kiện beforeunload để dừng âm thanh khi người dùng rời khỏi trang
+                window.addEventListener("beforeunload", function () {
+                    audio.pause();
+                    audio.currentTime = 0; // Đặt lại thời gian phát về 0 khi dừng
+                });
+            }
         });
+
 
     </script>
     
@@ -244,7 +258,7 @@
             <div class="image-box"><img src="img/a/76.jpg" alt="Hình 3" ></div>
             <div class="image-box"><img src="img/a/78.jpg" alt="Hình 1" ></div>
             <div class="image-box"><img src="img/a/80.jpg" alt="Hình 3" ></div>
-            <div class="image-text">Gió lạnh tháng 10 về rùi</div>
+            <div class="image-text">Gió lạnh tháng 10 về rùi, may mà anh có công chúa nhỏ</div>
             <div class="image-box"><img src="img/a/82.jpg" alt="Hình 1" ></div>
             <div class="image-box"><img src="img/a/84.jpg" alt="Hình 3" ></div>
             <div class="image-box"><img src="img/a/86.jpg" alt="Hình 1" ></div>
@@ -255,7 +269,7 @@
             <div class="image-box"><img src="img/a/1/vq1.jpg" alt="Hình 3" ></div>
             <div class="image-box"><img src="img/a/1/cf1.jpg" alt="Hình 1" ></div>
             <div class="image-box"><img src="img/a/1/cf2.jpg" alt="Hình 1" ></div>
-            <div class="image-text">Coffe tháng 11 học bài nè</div>
+            <div class="image-text">Coffe tháng 11 học bài nè, chúng mình chuẩn bị vào kì thi cuối kì nè</div>
             <div class="image-box"><img src="img/a/92.jpg" alt="Hình 3" ></div>
             <div class="image-box"><img src="img/a/1/xp4.jpg" alt="Hình 1" ></div>
             <div class="image-box"><img src="img/a/94.jpg" alt="Hình 1" ></div>
@@ -263,7 +277,7 @@
             <div class="image-box"><img src="img/a/1/ne4.jpg" alt="Hình 1" ></div>
             <div class="image-box"><img src="img/a/1/ne5.jpg" alt="Hình 1" ></div>
             <div class="image-box"><img src="img/a/98.jpg" alt="Hình 1" ></div>
-            <div class="image-text">Quà Noel quá là xinh nè</div>
+            <div class="image-text">Quà Noel quá là xinh nè, đúng là món quà gu anh, hihi</div>
             <div class="image-box"><img src="img/a/1/ne2.jpg" alt="Hình 1" ></div>
             <div class="image-box"><img src="img/a/1/ne3.jpg" alt="Hình 1" ></div>
             <div class="image-text">Xinh đáo để, xinh nghiêng nước nghiền thành, xinh hết phần thiên hạ</div>
@@ -272,15 +286,20 @@
             <div class="image-box"><img src="img/a/104.jpg" alt="Hình 3" ></div>
             <div class="image-box"><img src="img/a/106.jpg" alt="Hình 1" ></div>
             <div class="image-box"><img src="img/a/1/vnx4.jpg" alt="Hình 3" ></div>
-            <div class="image-text">Lại về nhà nữa trừi ưi X4 buồn - huhu </div>
+            <div class="image-text">Lại về nhà nữa trừi ưi X4 buồn - huhu (phải giận thui) </div>
             <div class="image-box"><img src="img/a/108.jpg" alt="Hình 3" ></div>
             <div class="image-box"><img src="img/a/1/te5.jpg" alt="Hình 1" ></div>
             <div class="image-box"><img src="img/a/1/te6.jpg" alt="Hình 1" ></div>
             <div class="image-box"><img src="img/a/1/te7.jpg" alt="Hình 1" ></div>
-            <div class="image-text">Mùng 3 Tết embe lên đồ nè xinh ỏ</div>
+            <div class="image-text">Mùng 3 Tết embe lên đồ nè xinh đi chơi Tết nè</div>
             <div class="image-box"><img src="img/a/1/te8.jpg" alt="Hình 1" ></div>
             <div class="image-box"><img src="img/a/1/te9.jpg" alt="Hình 1" ></div>
-            <div class="image-text">Một từ thui - xinh - đẹp</div>
+            <div class="image-text">Một từ thui - ỏ💕</div>
+            <div class="image-box"><img src="img/a/pc3.jpg" alt="Hình 1" ></div>
+            <div class="image-box"><img src="img/a/pc4.jpg" alt="Hình 1" ></div>
+            <div class="image-text">Tất nhiên là em xinh hơn rùi ạ</div>
+            <div class="image-box"><img src="img/a/pc5.jpg" alt="Hình 1" ></div>
+            <div class="image-text">Cảm ơn đôi tay nhỏ nhắn ấy đã luôn chăm sóc anh nè</div>
 
         </div>
         <div class="text-center">24/02/2024</div>
@@ -308,14 +327,14 @@
             <div class="image-box"><img src="img/a/33.jpg" alt="Hình 1" ></div>
             <div class="image-box"><img src="img/a/35.jpg" alt="Hình 3" ></div>            
             <div class="image-box"><img src="img/a/1/t4.jpg" alt="Hình 1" ></div>
-            <div class="image-text">Đầu tháng 4 đi đồi vọng cảnh mà huhuhuhu😂</div>
+            <div class="image-text">Đầu tháng 4 đi đồi vọng cảnh mà huhuhuhu😂, đen thui đỏ mai kiếm</div>
             <div class="image-box"><img src="img/a/1/t4 (4).jpg" alt="Hình 1" ></div>
             <div class="image-text">Em về nhà lần 1 buồn x1😭</div>
             <div class="image-box"><img src="img/a/1/t4 (3).jpg" alt="Hình 1" ></div>
             <div class="image-box"><img src="img/a/1/t4 (2).jpg" alt="Hình 1" ></div>
             <div class="image-box"><img src="img/a/53.jpg" alt="Hình 1" ></div>
             <div class="image-box"><img src="img/a/37.jpg" alt="Hình 2" ></div>
-            <div class="image-text">Hè về, Hai mình về HT đi ăn mỳ cay nè</div>
+            <div class="image-text">Hè về, Hai mình về HT đi ăn mỳ cay nè, gặp nhau thật nhiều nhiều nè</div>
             <div class="image-box"><img src="img/a/39.jpg" alt="Hình 4" ></div>
             <div class="image-box"><img src="img/a/41.jpg" alt="Hình 1" ></div>
             <div class="image-box"><img src="img/a/43.jpg" alt="Hình 3" ></div>
@@ -331,14 +350,14 @@
             <div class="image-box"><img src="img/a/57.jpg" alt="Hình 3" ></div>
             <div class="image-box"><img src="img/a/59.jpg" alt="Hình 1" ></div>
             <div class="image-box"><img src="img/a/61.jpg" alt="Hình 3" ></div>
-            <div class="image-text">Nó ngonnnnnn gì đâu</div>            
+            <div class="image-text">Nó ngonnnnnn gì đâu á</div>            
             <div class="image-box"><img src="img/a/65.jpg" alt="Hình 3" ></div>
-            <div class="image-text">Đầu tháng 9 đi chụp hình cho embe nè</div>
+            <div class="image-text">Đầu tháng 9 đi chụp hình cho embe nè, không đẹp trả về Hòa Mỹ luôn</div>
             <div class="image-box"><img src="img/a/1/t.jpg" alt="Hình 1" ></div>
             <div class="image-box"><img src="img/a/1/t1.jpg" alt="Hình 1" ></div>
             <div class="image-box"><img src="img/a/69.jpg" alt="Hình 3" ></div>
             <div class="image-box"><img src="img/a/67.jpg" alt="Hình 1" ></div>
-            <div class="image-text">Chuẩn bị sinh nhật cho embe thui</div>
+            <div class="image-text">Chuẩn bị sinh nhật cho embe thui, háo hức qua trừi ưi</div>
             <div class="image-box"><img src="img/a/1/sn3.jpg" alt="Hình 3" ></div>
             <div class="image-box"><img src="img/a/71.jpg" alt="Hình 1" ></div>
             <div class="image-box"><img src="img/a/1/sn2.jpg" alt="Hình 3" ></div>
@@ -355,13 +374,13 @@
             <div class="image-box"><img src="img/a/91.jpg" alt="Hình 1" ></div>
             <div class="image-box"><img src="img/a/93.jpg" alt="Hình 3" ></div>
             <div class="image-box"><img src="img/a/101.jpg" alt="Hình 1" ></div>
-            <div class="image-text">Công Chúa vào rùi trời ơi!</div>
+            <div class="image-text">Công Chúa vào rùi trời ơi! -NHỚ- </div>
             <div class="image-box"><img src="img/a/1/xp1.jpg" alt="Hình 1" ></div>
             <div class="image-box"><img src="img/a/1/xp.jpg" alt="Hình 1" ></div>
             <div class="image-text">Chụp ảnh photobooth cùng embe nè</div>
             <div class="image-box"><img src="img/a/1/xp2.jpg" alt="Hình 1" ></div>
             <div class="image-box"><img src="img/a/1/ne.jpg" alt="Hình 1" ></div>
-            <div class="image-text">Dầu tháng 12 chụp hình noel xinh xỉu nè💖</div>
+            <div class="image-text">ĐĐầu tháng 12 chụp hình noel xinh xỉu nè💖</div>
             <div class="image-box"><img src="img/a/97.jpg" alt="Hình 3" ></div>
             <div class="image-box"><img src="img/a/1/ne1.jpg" alt="Hình 1" ></div>
             <div class="image-box"><img src="img/a/1/ne6.jpg" alt="Hình 1" ></div>
@@ -371,7 +390,7 @@
             <div class="image-box"><img src="img/a/1/cd3.jpg" alt="Hình 3" ></div>
             <div class="image-box"><img src="img/a/1/cd4.jpg" alt="Hình 3" ></div>
             <div class="image-box"><img src="img/a/1/cd1.jpg" alt="Hình 1" ></div>
-            <div class="image-text">Đầu năm người yêu nấu là cả năm xác định rùi</div>
+            <div class="image-text">Đầu năm người yêu nấu là cả năm xác định cả năm rùi</div>
             <div class="image-box"><img src="img/a/103.jpg" alt="Hình 3" ></div>
             <div class="image-box"><img src="img/a/105.jpg" alt="Hình 1" ></div>
             <div class="image-box"><img src="img/a/107.jpg" alt="Hình 3" ></div>
@@ -383,6 +402,11 @@
             <div class="image-text">Chúc mừng ngày Valentine đầu tiên chúng mình bên nhau nè</div>
             <div class="image-box"><img src="img/a/1/te3.jpg" alt="Hình 1" ></div>
             <div class="image-box"><img src="img/a/1/te4.jpg" alt="Hình 1" ></div>
+            <div class="image-box"><img src="img/a/pc1.jpg" alt="Hình 1" ></div>
+            <div class="image-box"><img src="img/a/pc2.jpg" alt="Hình 1" ></div>
+            <div class="image-box"><img src="img/a/pc6.jpg" alt="Hình 1" ></div>
+            <div class="image-text">iuuu nhất trần đời</div>
+
         </div>                  
     </div> 
     <div class="end-message" >
@@ -390,7 +414,7 @@
         <button class="next-page-btn" onclick="window.location.href='nextpage.html'">Lịch trình ngày kỷ niệm</button>
     </div>
     <audio id="background-music" autoplay loop>
-        <source src="img/Christina Perri  A Thousand Years.mp3" type="audio/mp3">
+        <source src="img/s1s1.mp3" type="audio/mp3">
     </audio>
     
 </body>
